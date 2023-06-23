@@ -18,5 +18,9 @@ namespace Scheduling.Controllers
         {
             return View();
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
