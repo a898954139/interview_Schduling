@@ -387,3 +387,4 @@ C:\Users\a8989\OneDrive\桌面\ASP.Net\Scheduling\Scheduling\obj\Debug\net5.0\re
 C:\Users\a8989\OneDrive\桌面\ASP.Net\Scheduling\Scheduling\obj\Debug\net5.0\Scheduling.pdb
 C:\Users\a8989\OneDrive\桌面\ASP.Net\Scheduling\Scheduling\obj\Debug\net5.0\Scheduling.genruntimeconfig.cache
 C:\Users\a8989\OneDrive\桌面\ASP.Net\Scheduling\Scheduling\bin\Debug\net5.0\libman.json
+C:\Users\a8989\OneDrive\桌面\ASP.Net\Scheduling\Scheduling\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
