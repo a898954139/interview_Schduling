@@ -26,9 +26,22 @@ namespace Scheduling.Controllers
             _signInMangager = signInMangager;
             _roleManager = roleManager;
         }
+
         public IActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid) return View();
+
+            var result = await _signInMangager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            if (result.Succeeded) return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError("", "Invalid login attemp");
+            return View(model);
         }
         public async Task<IActionResult> Register()
         {
@@ -50,14 +63,27 @@ namespace Scheduling.Controllers
             {
                 UserName = model.Email,
                 Email = model.Email,
-                Name = model.Name
+                Name = model.Name,
             };
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user, model.Password);
 
-            if (!result.Succeeded) return View();
+            if (!result.Succeeded) 
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(model);
+            }
 
             await _userManager.AddToRoleAsync(user, model.RoleName);
             await _signInMangager.SignInAsync(user, isPersistent: false);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> Logoff()
+        {
+            await _signInMangager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }
