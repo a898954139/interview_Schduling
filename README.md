@@ -1,5 +1,5 @@
 # Scheduling
-## What wull do
+## What will do
 - Custom login and registration system
 - Create an base on account schedular sys
 ## User requirement
