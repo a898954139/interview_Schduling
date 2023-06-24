@@ -7,5 +7,7 @@ namespace Scheduling.Models.ViewModels
 {
     public class PatientVM
     {
+        public string ID { get; set; }
+        public string Name { get; set; }
     }
 }

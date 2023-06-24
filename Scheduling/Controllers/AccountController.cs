@@ -38,7 +38,7 @@ namespace Scheduling.Controllers
             if (!ModelState.IsValid) return View();
 
             var result = await _signInMangager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-            if (result.Succeeded) return RedirectToAction("Index", "Home");
+            if (result.Succeeded) return RedirectToAction("Index", "Appointment");
 
             ModelState.AddModelError("", "Invalid login attemp");
             return View(model);
