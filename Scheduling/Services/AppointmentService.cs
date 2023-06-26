@@ -16,6 +16,19 @@ namespace Scheduling.Services
             _db = db;
         }
 
+        public Task<int> AddUpdate(AppointmentVM model)
+        {
+            var startDate = DateTime.Parse(model.StartDate);
+            var endDate = DateTime.Parse(model.EndDate);
+
+            if (model!=null && model.Id > 0)
+            {
+                // update function
+            }
+            //create function
+            return null;
+        }
+
         public List<DoctorVM> GetDoctorList()
         {
             var doctors = (from user in _db.Users

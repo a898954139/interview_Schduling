@@ -10,11 +10,13 @@ namespace Scheduling.Models.ViewModels
         public int? Id { get; set; }
         public string Title { get; set; }
         public string Discription { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public int Duriation { get; set; }
         public string DoctorId { get; set; }
         public string PatientId { get; set; }
-        public bool AdminId { get; set; }
+        public string AdminId { get; set; }
+        public bool IsDoctorApproved { get; set; }
 
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
