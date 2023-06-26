@@ -26,3 +26,7 @@ function InitializeCalendar() {
 function onShowModal(event, isEventDetail) {
     $("#appointmentInput").modal("show");
 }
+
+function onCloseModal(event) {
+    $("#appointmentInput").modal("hide");
+}
