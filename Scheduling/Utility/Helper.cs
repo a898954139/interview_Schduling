@@ -11,6 +11,15 @@ namespace Scheduling.Utility
         public static string Admin = "Admin";
         public static string Patient = "Patient";
         public static string Doctor = "Doctor";
+        public static string appointmentAdded = "Appointment added successfully!";
+        public static string appointmentUpdated = "Appointment updated successfully!";
+        public static string appointmentDeleted = "Appointment deleted successfully!";
+        public static string appointmentExists = "Appointment for selected date and time already exists.";
+        public static string appointmentNotExist = "Appointment not exist.";
+
+        public static string appointmentAddError = "Something went wrong, Please try again.";
+        public static string appointmentUpdateError = "Something went wrong, Please try again.";
+        public static string somethingWentWrong = "Something went wrong, Please try again.";
 
         public static List<SelectListItem> GetRolesForDropDown()
         {

@@ -16,7 +16,7 @@ namespace Scheduling.Services
             _db = db;
         }
 
-        public Task<int> AddUpdate(AppointmentVM model)
+        public async Task<int> AddUpdate(AppointmentVM model)
         {
             var startDate = DateTime.Parse(model.StartDate);
             var endDate = DateTime.Parse(model.EndDate);
@@ -24,9 +24,24 @@ namespace Scheduling.Services
             if (model!=null && model.Id > 0)
             {
                 // update function
+                return 1;
             }
             //create function
-            return null;
+            Appointment appointment = new Appointment
+            {
+                Title = model.Title,
+                Discription = model.Discription,
+                StartDate = startDate,
+                EndDate = endDate,
+                Duriation = model.Duriation,
+                DoctorId = model.DoctorId,
+                PatientId = model.PatientId,
+                AdminId = model.AdminId,
+                IsDoctorApproved = model.IsDoctorApproved
+            };
+            _db.Appointments.Add(appointment);
+            await _db.SaveChangesAsync();
+            return 2;
         }
 
         public List<DoctorVM> GetDoctorList()
