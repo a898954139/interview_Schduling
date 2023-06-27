@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Scheduling.Models.ViewModels;
 using Scheduling.Services;
+using Scheduling.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +28,25 @@ namespace Scheduling.Controllers.Api
             loginUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
-        public IActionResult Index()
+        [HttpPost]
+        [Route("SaveCalendarData")]
+        public IActionResult SaveCalendarData(AppointmentVM data)
         {
-
-            return View();
+            CommonResponse<int> commonResponse = new CommonResponse<int>();
+            try
+            {
+                commonResponse.status = _appointmentservice.AddUpdate(data).Result;
+                if (commonResponse.status == 1) 
+                    commonResponse.message = Helper.appointmentUpdated;
+                if (commonResponse.status == 2) 
+                    commonResponse.message = Helper.appointmentAdded;
+            }
+            catch(Exception e)
+            {
+                commonResponse.message = e.Message;
+            }
+            return Ok(commonResponse);
         }
+
     }
 }

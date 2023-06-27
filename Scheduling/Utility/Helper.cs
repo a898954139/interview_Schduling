@@ -21,6 +21,9 @@ namespace Scheduling.Utility
         public static string appointmentUpdateError = "Something went wrong, Please try again.";
         public static string somethingWentWrong = "Something went wrong, Please try again.";
 
+        public static int successCode = 1;
+        public static int failureCode = 0;
+
         public static List<SelectListItem> GetRolesForDropDown()
         {
             return new List<SelectListItem>

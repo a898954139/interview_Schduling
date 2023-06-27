@@ -19,7 +19,7 @@ namespace Scheduling.Services
         public async Task<int> AddUpdate(AppointmentVM model)
         {
             var startDate = DateTime.Parse(model.StartDate);
-            var endDate = DateTime.Parse(model.EndDate);
+            var endDate = DateTime.Parse(model.StartDate).AddMinutes(Convert.ToDouble(model.Duriation));
 
             if (model!=null && model.Id > 0)
             {
