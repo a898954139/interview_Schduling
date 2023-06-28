@@ -76,23 +76,6 @@ function onSubmitForm() {
 }
 
 function checkValidation() {
-    //var isValid = true;
-    //if title is undefined or title is empty string
-    //set isValid to false
-    //if ($("#title").val() === undefined || $("#title").val() === "") {
-    //    isValid = false;
-    //    $("#title").addClass('error');
-    //} else {
-    //    $("#title").removeClass('error');
-    //}
-    //if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val() === "") {
-    //    isValid = false;
-    //    $("#appointmentDate").addClass('error');
-    //} else {
-    //    $("#appointmentDate").removeClass('error');
-    //}
-    //return isValid;
-
     if ($("#title").val() === undefined || $("#title").val() === "") {
         $("#title").addClass('error');
         return false;
@@ -101,6 +84,7 @@ function checkValidation() {
     if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val() === "") {
         $("#appointmentDate").addClass('error');
         return false;
-    } $("#appointmentDate").removeClass('error');
+    }
+    $("#appointmentDate").removeClass('error');
     return true;
 }
