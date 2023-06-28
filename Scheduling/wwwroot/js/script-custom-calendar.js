@@ -55,7 +55,7 @@ function onSubmitForm() {
         };
 
         $.ajax({
-            url: routeURL + '/api/Appointment/SaveCalendarData',
+            url: routeURL + '/api/Appointment/CalendarData',
             method: 'POST',
             data: JSON.stringify(requestData),
             contentType: 'application/json',
@@ -76,20 +76,31 @@ function onSubmitForm() {
 }
 
 function checkValidation() {
-    var isValid = true;
+    //var isValid = true;
     //if title is undefined or title is empty string
     //set isValid to false
+    //if ($("#title").val() === undefined || $("#title").val() === "") {
+    //    isValid = false;
+    //    $("#title").addClass('error');
+    //} else {
+    //    $("#title").removeClass('error');
+    //}
+    //if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val() === "") {
+    //    isValid = false;
+    //    $("#appointmentDate").addClass('error');
+    //} else {
+    //    $("#appointmentDate").removeClass('error');
+    //}
+    //return isValid;
+
     if ($("#title").val() === undefined || $("#title").val() === "") {
-        isValid = false;
         $("#title").addClass('error');
-    } else {
-        $("#title").removeClass('error');
+        return false;
     }
+    $("#title").removeClass('error');
     if ($("#appointmentDate").val() === undefined || $("#appointmentDate").val() === "") {
-        isValid = false;
         $("#appointmentDate").addClass('error');
-    } else {
-        $("#appointmentDate").removeClass('error');
-    }
-    return isValid;
+        return false;
+    } $("#appointmentDate").removeClass('error');
+    return true;
 }
