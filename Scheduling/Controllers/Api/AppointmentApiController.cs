@@ -29,7 +29,7 @@ namespace Scheduling.Controllers.Api
             role = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         }
         [HttpPost]
-        [Route("SaveCalendarData")]
+        [Route("CalendarData")]
         public IActionResult SaveCalendarData(AppointmentVM data)
         {
             CommonResponse<int> commonResponse = new CommonResponse<int>();
